@@ -415,30 +415,31 @@ body {
     transform: scale(1.2);
 }
 
-/* Untuk memulai flip pada mobile */
+/* Untuk tampilan di bawah atau sama dengan 768px (mobile) */
 @media (max-width: 768px) {
     /* Product Card untuk mobile (efek flip dan tinggi) */
     .product-card {
-        height: 450px; /* Tinggi produk card di mobile */
+        height: 450px; /* Tinggi produk card di mobile. Sesuaikan jika perlu. */
         perspective: 1000px;
         position: relative;
         border-radius: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
+        overflow: hidden; /* Penting agar konten tidak meluap dari kartu */
     }
 
     .product-inner {
         position: relative;
         width: 100%;
         height: 100%;
-        text-align: center;
-        transition: transform 0.2s ease-in-out;
+        text-align: center; /* Ini akan memusatkan teks di front/back secara horizontal */
+        transition: transform 0.5s ease-in-out; /* Durasi transisi flip */
         transform-style: preserve-3d;
-        -webkit-transition: transform 0.2s ease-in-out;
-        -moz-transition: transform 0.2s ease-in-out;
-        -ms-transition: transform 0.2s ease-in-out;
-        -o-transition: transform 0.2s ease-in-out;
-}
+        /* Hapus vendor prefixes, modern browser tidak lagi membutuhkannya */
+        /* -webkit-transition: transform 0.5s ease-in-out; */
+        /* -moz-transition: transform 0.5s ease-in-out; */
+        /* -ms-transition: transform 0.5s ease-in-out; */
+        /* -o-transition: transform 0.5s ease-in-out; */
+    }
 
     /* Mengatur flip saat card diklik */
     .product-card.flipped .product-inner {
@@ -446,8 +447,8 @@ body {
     }
     
     /* Matikan hover flip untuk desktop jika di mobile */
-    .product-card:hover .product-inner { /* */
-        transform: none; /* */
+    .product-card:hover .product-inner {
+        transform: none; /* Batalkan efek hover flip di mobile */
     }
 
     .product-front,
@@ -455,70 +456,64 @@ body {
         position: absolute;
         width: 100%;
         height: 100%;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden; /* Sembunyikan sisi belakang saat tidak menghadap */
+        -webkit-backface-visibility: hidden; /* Untuk kompatibilitas Safari */
         border-radius: inherit;
         background-color: white;
-        overflow: hidden;
+        overflow: hidden; /* Penting untuk mengelola konten yang mungkin meluap */
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        padding: 1rem;
+        justify-content: space-between; /* Dorong tombol ke bawah */
+        padding: 1rem; /* Padding internal untuk konten */
         box-sizing: border-box;
     }
 
     .product-back {
-        transform: rotateY(180deg);
-        border-radius: inherit; /* Pastikan ini ada dan benar */
-        background-color: white;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 1rem;
-        box-sizing: border-box;
+        transform: rotateY(180deg); /* Rotasi awal agar berada di belakang */
     }
 
-    .product-desc {
-        overflow-y: auto;
-        flex-grow: 1;
-        padding-right: 8px;
-        text-align: left; /* <-- TAMBAHKAN BARIS INI UNTUK RATA KIRI */
-    }
-
+    /* PERBAIKAN: Sesuaikan tinggi gambar agar ada ruang untuk teks di product-front */
     .product-front img {
         width: 100%;
-        height: 100%; /* Sesuaikan tinggi gambar agar ada ruang untuk teks dan badge */
+        height: 100%; /* UBAH INI: Beri ruang 40% untuk teks di bawah gambar */
         object-fit: cover;
         object-position: center;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
     }
 
+    /* Sesuaikan padding dan tata letak untuk konten teks di product-front */
     .product-front .p-4 {
         padding: 1rem;
-        flex-grow: 1;
+        flex-grow: 1; /* Biarkan konten teks tumbuh mengisi sisa ruang */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
 
+    /* PERBAIKAN: Pastikan teks di product-desc rata kiri */
+    .product-desc {
+        overflow-y: auto;
+        flex-grow: 1;
+        padding-right: 8px; /* Untuk scrollbar jika ada */
+        text-align: left; /* KUNCI: Rata kiri untuk deskripsi produk */
+    }
+
     .product-back .btn-primary {
-        margin-top: auto;
+        margin-top: auto; /* Dorong tombol ke bagian bawah */
         width: 100%;
         padding: 0.75rem 1.5rem;
     }
 
-    /* Mobile Products Carousel */
+    /* Mobile Products Carousel - Definisi UTAMA untuk Mobile */
     .mobile-products {
-        display: flex; /* */
-        overflow-x: auto; /* */
-        scroll-snap-type: x mandatory; /* */
-        scroll-behavior: smooth; /* */
-        -webkit-overflow-scrolling: touch; /* */
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
         
-        /* PENTING: Padding untuk memusatkan item pertama dan terakhir */
-        /* Jika card 90% lebar, sisa 10%. Bagi 2 jadi 5% di kiri dan kanan */
+        /* Hapus padding-left dan padding-right jika ingin satu produk penuh di tengah */
         padding-left: 0;   
         padding-right: 0;  
         margin-left: 0; 
@@ -526,25 +521,23 @@ body {
         padding-top: 1rem; 
         padding-bottom: 1rem; 
 
-        /* HAPUS justify-content: flex-start; */
-        /* HAPUS gap karena tidak perlu jarak antar item jika hanya satu yang ditampilkan penuh */
-        gap: 5; 
+        gap: 50; /* Hapus gap karena hanya satu item yang ditampilkan penuh */
     }
 
     .mobile-product {
         scroll-snap-align: center; /* KUNCI: Agar kartu menjepit di tengah */
         flex: 0 0 100%; /* UBAH INI: Lebar kartu di mobile menjadi 100% */
-        max-width: 100%; /* UBAH INI: Memastikan flex tidak melebihi lebar ini */
-        /* Hapus margin-right jika ada, karena kita pakai 'gap' (yang sudah dihapus) */
+        max-width: 100%; /* Memastikan flex tidak melebihi lebar ini */
+        /* Hapus margin-right di sini karena kita pakai 'gap' (yang sudah dihapus) */
     }
 
     /* Sembunyikan scrollbar tapi tetap bisa di-scroll */
-    .mobile-products.no-scrollbar::-webkit-scrollbar { /* */
-        display: none; /* */
+    .mobile-products.no-scrollbar::-webkit-scrollbar {
+        display: none;
     }
-    .mobile-products.no-scrollbar { /* */
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
+    .mobile-products.no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 
     /* Styling tambahan untuk indikator carousel */
