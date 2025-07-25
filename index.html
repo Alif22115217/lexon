@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lexon Beauty - Kecantikan Modern untuk Anda</title>
+    <meta name="description" content="Lexon Beauty menyediakan produk kecantikan premium dengan kualitas terbaik. Temukan koleksi skincare dan makeup terbaru untuk tampil percaya diri.">
+    <meta name="keywords" content="lexon beauty, kecantikan, skincare, makeup, kosmetik, beauty, produk kecantikan">
+    <meta property="og:title" content="Lexon Beauty - Kecantikan Modern untuk Anda">
+    <meta property="og:description" content="Lexon Beauty menyediakan produk kecantikan premium dengan kualitas terbaik.">
+    <meta name="twitter:title" content="Lexon Beauty - Kecantikan Modern untuk Anda">
+    <meta name="twitter:description" content="Lexon Beauty menyediakan produk kecantikan premium dengan kualitas terbaik.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="smooth-scroll">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto container-padding py-3 sm:py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center">
+                        <div class="icon-sparkles text-white text-lg"></div>
+                    </div>
+                    <span class="text-2xl font-bold gradient-text">Lexon Beauty</span>
+                </div>
+
+                <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="#home" class="nav-link">Beranda</a>
+                    <a href="#products" class="nav-link">Produk</a>
+                    <a href="#about" class="nav-link">Tentang</a>
+                    <a href="#contact" class="nav-link">Kontak</a>
+                    <button class="btn-primary text-sm px-6 py-2.5">Belanja Sekarang</button>
+                </nav>
+
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    <div class="icon-menu text-xl text-gray-700"></div>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="lg:hidden mt-4 pb-4 border-t border-gray-200 hidden">
+                <nav class="flex flex-col space-y-3 pt-4">
+                    <a href="#home" class="mobile-nav-link">Beranda</a>
+                    <a href="#products" class="mobile-nav-link">Produk</a>
+                    <a href="#about" class="mobile-nav-link">Tentang</a>
+                    <a href="#contact" class="mobile-nav-link">Kontak</a>
+                    <button class="btn-primary w-full mt-3">Belanja Sekarang</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-start relative overflow-hidden bg-pink-50 py-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
+
+        <!-- Floating background shapes -->
+        <div class="absolute top-20 left-10 w-32 h-32 bg-blue-200 rounded-full opacity-20 animate-float"></div>
+        <div class="absolute bottom-20 right-10 w-24 h-24 bg-indigo-200 rounded-full opacity-30 animate-float float-delay-2"></div>
+        <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-purple-200 rounded-full opacity-25 animate-float float-delay-4"></div>
+
+        <div class="container mx-auto px-6 lg:px-20 relative z-10 mt-10">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <!-- Left Section: Text (Rata Kiri) -->
+                <div class="text-left animate-slide-up">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4 sm:mb-6 text-shadow leading-tight mt-4">
+                        Temukan 
+                        <span class="gradient-text block">Cahaya Alami Untuk Kulitmu</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0 ml-1">
+                        Rangkaian skincare premium yang diformulasikan dari bahan-bahan alami terbaik, untuk menampilkan kecantikan asli Anda.
+                        Telah diuji secara dermatologis, bebas dari kekejaman hewan, dan cocok untuk semua jenis kulit. Bersinar secara alami, tanpa kompromi.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-start mb-8 sm:mb-12">
+                        <button class="btn-primary">
+                            Belanja Sekarang
+                        </button>
+                        <button class="btn-secondary">
+                            Pelajari Lebih Lanjut
+                        </button>
+                    </div>
+
+                    <!-- Features Section -->
+                    <div class="flex justify-start gap-4 lg:justify-start mb-8 sm:mb-12">
+                        <div class="flex items-center">
+                            <span class="text-green-600 text-xl">✔</span>
+                            <span class="ml-2 text-sm text-gray-600">100% Alami</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-green-600 text-xl">✔</span>
+                            <span class="ml-2 text-sm text-gray-600">Tersertifikasi BPOM</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-green-600 text-xl">✔</span>
+                            <span class="ml-2 text-sm text-gray-600">Bersertifikat Halal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Section: Image -->
+                <div class="relative mt-8 lg:mt-0">
+                    <div class="relative z-10">
+                        <img 
+                            src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            alt="Beauty Products" 
+                            class="w-full h-auto rounded-2xl sm:rounded-3xl shadow-2xl card-hover object-cover"
+                        />
+                    </div>
+                    <div class="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-full h-full bg-gradient-to-r from-blue-400 to-indigo-400 rounded-2xl sm:rounded-3xl opacity-20"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section-spacing bg-gradient-to-b from-white to-blue-50" data-name="features" data-file="components/Features.js">
+        <div class="container mx-auto container-padding">
+            <div class="text-center mb-12 sm:mb-16 animate-slide-up">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+                Mengapa Memilih <span class="gradient-text">Lexon Beauty?</span>
+            </h2>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                Kami berkomitmen memberikan yang terbaik dengan standar kualitas tertinggi 
+                dan inovasi berkelanjutan untuk kecantikan Anda.
+            </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <!-- Feature 1 -->
+            <div class="text-center p-6 sm:p-8 bg-white rounded-xl sm:rounded-2xl shadow-lg card-hover border border-blue-100 animate-slide-up" style="animation-delay: 0s">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <div class="icon-leaf text-xl sm:text-2xl text-white"></div>
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Bahan Natural</h3>
+                <p class="text-gray-600 leading-relaxed">Diperkaya dengan ekstrak alami terbaik untuk kulit yang sehat dan bersinar</p>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="text-center p-6 sm:p-8 bg-white rounded-xl sm:rounded-2xl shadow-lg card-hover border border-blue-100 animate-slide-up" style="animation-delay: 0.1s">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <div class="icon-shield-check text-xl sm:text-2xl text-white"></div>
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Teruji Dermatologi</h3>
+                <p class="text-gray-600 leading-relaxed">Semua produk telah melalui uji klinis dan aman untuk semua jenis kulit</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="text-center p-6 sm:p-8 bg-white rounded-xl sm:rounded-2xl shadow-lg card-hover border border-blue-100 animate-slide-up" style="animation-delay: 0.2s">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <div class="icon-award text-xl sm:text-2xl text-white"></div>
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Kualitas Premium</h3>
+                <p class="text-gray-600 leading-relaxed">Standar internasional dengan teknologi terdepan dalam industri kecantikan</p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="text-center p-6 sm:p-8 bg-white rounded-xl sm:rounded-2xl shadow-lg card-hover border border-blue-100 animate-slide-up" style="animation-delay: 0.3s">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <div class="icon-heart text-xl sm:text-2xl text-white"></div>
+                </div>
+                <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Cruelty Free</h3>
+                <p class="text-gray-600 leading-relaxed">Tidak diuji pada hewan dan ramah lingkungan untuk masa depan yang lebih baik</p>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section id="products" class="py-16 px-6 md:px-12 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-12 sm:mb-16 animate-slide-up">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+                    Produk <span class="gradient-text">Unggulan</span>
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                    Koleksi produk kecantikan terpilih yang telah dipercaya ribuan wanita Indonesia
+                    untuk tampil cantik dan percaya diri.
+                </p>
+            </div>
+
+            <div class="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="product-card">
+                    <div class="product-inner">
+                        <!--Product 1-->
+                        <div class="product-front bg-white">
+                            <div class="relative w-full h-80 overflow-hidden">
+                                <img src="image.png" alt="Hydrating Facial Serum">
+                                <div class="discount-badge facewash-badge">Face Wash</div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-lg mb-2">Hydrating Facial Serum</h3>
+                                <div class="flex items-center mb-2">
+                                    <span class="text-blue-400 font-bold text-lg">Rp34.900</span>
+                                    <span class="original-price ml-2 text-sm text-gray-500">Rp38.000</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex text-yellow-400">★★★★★</div>
+                                    <button class="text-blue-400 hover:text-blue-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-back p-4 bg-white">
+                            <h3 class="font-bold text-xl mb-4">Hydrating Facial Serum</h3>
+                            <div class="product-desc text-gray-600 mb-4">
+                                <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Hyaluronic Acid, Vitamin E, Aloe Vera, Green Tea Extract, Peptides</p>
+                                <p class="mb-3"><span class="font-bold">Benefits:</span> Deep hydration, reduces fine lines, improves skin elasticity, soothes irritation, brightens skin, improves overall skin texture, and helps with collagen production for a youthful appearance. Ideal for combating dryness, dullness, and aging signs.</p>
+                                <p class="mb-3"><span class="font-bold">How to Use:</span> Apply 2-3 drops to clean face in the morning and night. Gently massage into skin using upward circular motions until fully absorbed. For best results, follow with a moisturizer and sunscreen during the day to lock in hydration and protect your skin from environmental damage.</p>
+                                <p class="mb-3"><span class="font-bold">Skin Type:</span> Suitable for all skin types, especially dry, sensitive, and mature skin. Non-comedogenic, gentle enough for daily use and sensitive skin conditions. Can be used by those with acne-prone skin as it hydrates without clogging pores.</p>
+                                <p class="mb-3"><span class="font-bold">Additional Information:</span> Free from parabens, sulfates, and synthetic fragrances. Dermatologically tested for skin safety. Cruelty-free and vegan-friendly, ensuring no harm to animals.</p>
+                                <p><span class="font-bold">Storage Tips:</span> Keep in a cool, dry place away from direct sunlight. Ensure the cap is tightly closed after use to preserve freshness and prevent contamination.</p>
+                            </div>
+                            <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Product 2-->
+                <div class="product-card">
+                    <div class="product-inner">
+                        <div class="product-front bg-white">
+                            <div class="relative w-full h-80 overflow-hidden">
+                                <img src="image.png" alt="Refreshing Toner">
+                                <div class="discount-badge skincare-badge">Skincare</div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-lg mb-2">Refreshing Toner</h3>
+                                <div class="flex items-center mb-2">
+                                    <span class="text-blue-400 font-bold text-lg">Rp28.500</span>
+                                    <span class="original-price ml-2 text-sm text-gray-500">Rp30.000</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex text-yellow-400">★★★★★</div>
+                                    <button class="text-blue-400 hover:text-blue-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-back p-4 bg-white">
+                            <h3 class="font-bold text-xl mb-4">Refreshing Toner</h3>
+                            <div class="product-desc text-gray-600 mb-4">
+                                <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Witch Hazel, Rose Water</p>
+                                <p class="mb-3"><span class="font-bold">Benefits:</span> Balances skin pH, minimizes pores</p>
+                                <p><span class="font-bold">Skin Type:</span> All skin types</p>
+                            </div>
+                            <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-inner">
+                        <div class="product-front bg-white">
+                            <div class="relative w-full h-80 overflow-hidden">
+                                <img src="image.png" alt="Refreshing Toner">
+                                <div class="discount-badge skincare-badge">Skincare</div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-lg mb-2">Refreshing Toner</h3>
+                                <div class="flex items-center mb-2">
+                                    <span class="text-blue-400 font-bold text-lg">Rp28.500</span>
+                                    <span class="original-price ml-2 text-sm text-gray-500">Rp30.000</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex text-yellow-400">★★★★★</div>
+                                    <button class="text-blue-400 hover:text-blue-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-back p-4 bg-white">
+                            <h3 class="font-bold text-xl mb-4">Refreshing Toner</h3>
+                            <div class="product-desc text-gray-600 mb-4">
+                                <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Witch Hazel, Rose Water</p>
+                                <p class="mb-3"><span class="font-bold">Benefits:</span> Balances skin pH, minimizes pores</p>
+                                <p><span class="font-bold">Skin Type:</span> All skin types</p>
+                            </div>
+                            <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-inner">
+                        <div class="product-front bg-white">
+                            <div class="relative w-full h-80 overflow-hidden">
+                                <img src="image.png" alt="Refreshing Toner">
+                                <div class="discount-badge skincare-badge">Skincare</div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-lg mb-2">Refreshing Toner</h3>
+                                <div class="flex items-center mb-2">
+                                    <span class="text-blue-400 font-bold text-lg">Rp28.500</span>
+                                    <span class="original-price ml-2 text-sm text-gray-500">Rp30.000</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex text-yellow-400">★★★★★</div>
+                                    <button class="text-blue-400 hover:text-blue-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-back p-4 bg-white">
+                            <h3 class="font-bold text-xl mb-4">Refreshing Toner</h3>
+                            <div class="product-desc text-gray-600 mb-4">
+                                <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Witch Hazel, Rose Water</p>
+                                <p class="mb-3"><span class="font-bold">Benefits:</span> Balances skin pH, minimizes pores</p>
+                                <p><span class="font-bold">Skin Type:</span> All skin types</p>
+                            </div>
+                            <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-inner">
+                        <div class="product-front bg-white">
+                            <div class="relative w-full h-80 overflow-hidden">
+                                <img src="image.png" alt="Refreshing Toner">
+                                <div class="discount-badge skincare-badge">Skincare</div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-lg mb-2">Refreshing Toner</h3>
+                                <div class="flex items-center mb-2">
+                                    <span class="text-blue-400 font-bold text-lg">Rp28.500</span>
+                                    <span class="original-price ml-2 text-sm text-gray-500">Rp30.000</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex text-yellow-400">★★★★★</div>
+                                    <button class="text-blue-400 hover:text-blue-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-back p-4 bg-white">
+                            <h3 class="font-bold text-xl mb-4">Refreshing Toner</h3>
+                            <div class="product-desc text-gray-600 mb-4">
+                                <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Witch Hazel, Rose Water</p>
+                                <p class="mb-3"><span class="font-bold">Benefits:</span> Balances skin pH, minimizes pores</p>
+                                <p><span class="font-bold">Skin Type:</span> All skin types</p>
+                            </div>
+                            <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-inner">
+                        <div class="product-front bg-white">
+                            <div class="relative w-full h-80 overflow-hidden">
+                                <img src="image.png" alt="Refreshing Toner">
+                                <div class="discount-badge skincare-badge">Skincare</div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-lg mb-2">Refreshing Toner</h3>
+                                <div class="flex items-center mb-2">
+                                    <span class="text-blue-400 font-bold text-lg">Rp28.500</span>
+                                    <span class="original-price ml-2 text-sm text-gray-500">Rp30.000</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex text-yellow-400">★★★★★</div>
+                                    <button class="text-blue-400 hover:text-blue-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-back p-4 bg-white">
+                            <h3 class="font-bold text-xl mb-4">Refreshing Toner</h3>
+                            <div class="product-desc text-gray-600 mb-4">
+                                <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Witch Hazel, Rose Water</p>
+                                <p class="mb-3"><span class="font-bold">Benefits:</span> Balances skin pH, minimizes pores</p>
+                                <p><span class="font-bold">Skin Type:</span> All skin types</p>
+                            </div>
+                            <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-inner">
+                        <div class="product-front bg-white">
+                            <div class="relative w-full h-80 overflow-hidden">
+                                <img src="image.png" alt="Refreshing Toner">
+                                <div class="discount-badge skincare-badge">Skincare</div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-lg mb-2">Refreshing Toner</h3>
+                                <div class="flex items-center mb-2">
+                                    <span class="text-blue-400 font-bold text-lg">Rp28.500</span>
+                                    <span class="original-price ml-2 text-sm text-gray-500">Rp30.000</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex text-yellow-400">★★★★★</div>
+                                    <button class="text-blue-400 hover:text-blue-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-back p-4 bg-white">
+                            <h3 class="font-bold text-xl mb-4">Refreshing Toner</h3>
+                            <div class="product-desc text-gray-600 mb-4">
+                                <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Witch Hazel, Rose Water</p>
+                                <p class="mb-3"><span class="font-bold">Benefits:</span> Balances skin pH, minimizes pores</p>
+                                <p><span class="font-bold">Skin Type:</span> All skin types</p>
+                            </div>
+                            <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-inner">
+                        <div class="product-front bg-white">
+                            <div class="relative w-full h-80 overflow-hidden">
+                                <img src="image.png" alt="Refreshing Toner">
+                                <div class="discount-badge skincare-badge">Skincare</div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-lg mb-2">Refreshing Toner</h3>
+                                <div class="flex items-center mb-2">
+                                    <span class="text-blue-400 font-bold text-lg">Rp28.500</span>
+                                    <span class="original-price ml-2 text-sm text-gray-500">Rp30.000</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex text-yellow-400">★★★★★</div>
+                                    <button class="text-blue-400 hover:text-blue-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-back p-4 bg-white">
+                            <h3 class="font-bold text-xl mb-4">Refreshing Toner</h3>
+                            <div class="product-desc text-gray-600 mb-4">
+                                <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Witch Hazel, Rose Water</p>
+                                <p class="mb-3"><span class="font-bold">Benefits:</span> Balances skin pH, minimizes pores</p>
+                                <p><span class="font-bold">Skin Type:</span> All skin types</p>
+                            </div>
+                            <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Mobile Carousel-->
+            <div class="md:hidden relative">
+                <div class="mobile-products flex overflow-x-auto snap-x snap-mandatory py-4 -mx-4 px-4 no-scrollbar">
+                    <div class="mobile-product product-card">
+                        <div class="product-inner">
+                            <!--Product 1-->
+                            <div class="product-front bg-white">
+                                <div class="relative w-full h-80 overflow-hidden">
+                                    <img src="image.png" alt="Hydrating Facial Serum" class="w-full h-full object-cover">
+                                    <div class="discount-badge facewash-badge">Face Wash</div>
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg mb-1">Hydrating Facial Serum</h3>
+                                    <div class="flex items-center mb-2">
+                                        <span class="text-blue-400 font-bold text-lg">Rp34.900</span>
+                                        <span class="original-price ml-2">$38.000</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex text-yellow-400">★★★★★</div>
+                                        <button class="text-blue-400 hover:text-blue-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-back">
+                                <h3 class="font-bold text-xl mb-4">Hydrating Facial Serum</h3>
+                                <div class="product-desc text-gray-600 mb-4">
+                                    <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Hyaluronic Acid, Vitamin E, Aloe Vera, Green Tea Extract, Peptides</p>
+                                    <p class="mb-3"><span class="font-bold">Benefits:</span> Deep hydration, reduces fine lines, improves skin elasticity, soothes irritation, brightens skin, improves overall skin texture, and helps with collagen production for a youthful appearance. Ideal for combating dryness, dullness, and aging signs.</p>
+                                    <p class="mb-3"><span class="font-bold">How to Use:</span> Apply 2-3 drops to clean face in the morning and night. Gently massage into skin using upward circular motions until fully absorbed. For best results, follow with a moisturizer and sunscreen during the day to lock in hydration and protect your skin from environmental damage.</p>
+                                    <p class="mb-3"><span class="font-bold">Skin Type:</span> Suitable for all skin types, especially dry, sensitive, and mature skin. Non-comedogenic, gentle enough for daily use and sensitive skin conditions. Can be used by those with acne-prone skin as it hydrates without clogging pores.</p>
+                                    <p class="mb-3"><span class="font-bold">Additional Information:</span> Free from parabens, sulfates, and synthetic fragrances. Dermatologically tested for skin safety. Cruelty-free and vegan-friendly, ensuring no harm to animals.</p>
+                                    <p><span class="font-bold">Storage Tips:</span> Keep in a cool, dry place away from direct sunlight. Ensure the cap is tightly closed after use to preserve freshness and prevent contamination.</p>
+                                </div>
+                                <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Product 2-->
+                    <div class="mobile-product product-card">
+                        <div class="product-inner">
+                            <div class="product-front bg-white">
+                                <div class="relative w-full h-80 overflow-hidden">
+                                    <img src="image.png" alt="Refreshing Toner" class="w-full h-full object-cover">
+                                    <div class="discount-badge skincare-badge">Skincare</div>
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg mb-1">Refreshing Toner</h3>
+                                    <div class="flex items-center mb-2">
+                                        <span class="text-blue-400 font-bold text-lg">Rp28.500</span>
+                                        <span class="original-price ml-2">Rp30.000</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex text-yellow-400">★★★★★</div>
+                                        <button class="text-blue-400 hover:text-blue-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-back">
+                                <h3 class="font-bold text-xl mb-4">Refreshing Toner</h3>
+                                <div class="product-desc text-gray-600 mb-4">
+                                    <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Witch Hazel, Rose Water</p>
+                                    <p class="mb-3"><span class="font-bold">Benefits:</span> Balances skin pH, minimizes pores</p>
+                                    <p><span class="font-bold">Skin Type:</span> All skin types</p>
+                                </div>
+                                <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-product product-card">
+                        <div class="product-inner">
+                            <div class="product-front bg-white">
+                                <div class="relative w-full h-80 overflow-hidden">
+                                    <img src="image.png" alt="Refreshing Toner" class="w-full h-full object-cover">
+                                    <div class="discount-badge skincare-badge">Skincare</div>
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg mb-1">Refreshing Toner</h3>
+                                    <div class="flex items-center mb-2">
+                                        <span class="text-blue-400 font-bold text-lg">Rp28.500</span>
+                                        <span class="original-price ml-2">Rp30.000</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex text-yellow-400">★★★★★</div>
+                                        <button class="text-blue-400 hover:text-blue-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-back">
+                                <h3 class="font-bold text-xl mb-4">Refreshing Toner</h3>
+                                <div class="product-desc text-gray-600 mb-4">
+                                    <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Witch Hazel, Rose Water</p>
+                                    <p class="mb-3"><span class="font-bold">Benefits:</span> Balances skin pH, minimizes pores</p>
+                                    <p><span class="font-bold">Skin Type:</span> All skin types</p>
+                                </div>
+                                <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-product product-card">
+                        <div class="product-inner">
+                            <div class="product-front bg-white">
+                                <div class="relative w-full h-80 overflow-hidden">
+                                    <img src="image.png" alt="Refreshing Toner" class="w-full h-full object-cover">
+                                    <div class="discount-badge skincare-badge">Skincare</div>
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg mb-1">Refreshing Toner</h3>
+                                    <div class="flex items-center mb-2">
+                                        <span class="text-blue-400 font-bold text-lg">Rp28.500</span>
+                                        <span class="original-price ml-2">Rp30.000</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex text-yellow-400">★★★★★</div>
+                                        <button class="text-blue-400 hover:text-blue-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-back">
+                                <h3 class="font-bold text-xl mb-4">Refreshing Toner</h3>
+                                <div class="product-desc text-gray-600 mb-4">
+                                    <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Witch Hazel, Rose Water</p>
+                                    <p class="mb-3"><span class="font-bold">Benefits:</span> Balances skin pH, minimizes pores</p>
+                                    <p><span class="font-bold">Skin Type:</span> All skin types</p>
+                                </div>
+                                <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-product product-card">
+                        <div class="product-inner">
+                            <div class="product-front bg-white">
+                                <div class="relative w-full h-80 overflow-hidden">
+                                    <img src="image.png" alt="Refreshing Toner" class="w-full h-full object-cover">
+                                    <div class="discount-badge skincare-badge">Skincare</div>
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg mb-1">Refreshing Toner</h3>
+                                    <div class="flex items-center mb-2">
+                                        <span class="text-blue-400 font-bold text-lg">Rp28.500</span>
+                                        <span class="original-price ml-2">Rp30.000</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex text-yellow-400">★★★★★</div>
+                                        <button class="text-blue-400 hover:text-blue-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-back">
+                                <h3 class="font-bold text-xl mb-4">Refreshing Toner</h3>
+                                <div class="product-desc text-gray-600 mb-4">
+                                    <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Witch Hazel, Rose Water</p>
+                                    <p class="mb-3"><span class="font-bold">Benefits:</span> Balances skin pH, minimizes pores</p>
+                                    <p><span class="font-bold">Skin Type:</span> All skin types</p>
+                                </div>
+                                <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-product product-card">
+                        <div class="product-inner">
+                            <div class="product-front bg-white">
+                                <div class="relative w-full h-80 overflow-hidden">
+                                    <img src="image.png" alt="Refreshing Toner" class="w-full h-full object-cover">
+                                    <div class="discount-badge skincare-badge">Skincare</div>
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg mb-1">Refreshing Toner</h3>
+                                    <div class="flex items-center mb-2">
+                                        <span class="text-blue-400 font-bold text-lg">Rp28.500</span>
+                                        <span class="original-price ml-2">Rp30.000</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex text-yellow-400">★★★★★</div>
+                                        <button class="text-blue-400 hover:text-blue-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-back">
+                                <h3 class="font-bold text-xl mb-4">Refreshing Toner</h3>
+                                <div class="product-desc text-gray-600 mb-4">
+                                    <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Witch Hazel, Rose Water</p>
+                                    <p class="mb-3"><span class="font-bold">Benefits:</span> Balances skin pH, minimizes pores</p>
+                                    <p><span class="font-bold">Skin Type:</span> All skin types</p>
+                                </div>
+                                <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-product product-card">
+                        <div class="product-inner">
+                            <div class="product-front bg-white">
+                                <div class="relative w-full h-80 overflow-hidden">
+                                    <img src="image.png" alt="Refreshing Toner" class="w-full h-full object-cover">
+                                    <div class="discount-badge skincare-badge">Skincare</div>
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg mb-1">Refreshing Toner</h3>
+                                    <div class="flex items-center mb-2">
+                                        <span class="text-blue-400 font-bold text-lg">Rp28.500</span>
+                                        <span class="original-price ml-2">Rp30.000</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex text-yellow-400">★★★★★</div>
+                                        <button class="text-blue-400 hover:text-blue-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-back">
+                                <h3 class="font-bold text-xl mb-4">Refreshing Toner</h3>
+                                <div class="product-desc text-gray-600 mb-4">
+                                    <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Witch Hazel, Rose Water</p>
+                                    <p class="mb-3"><span class="font-bold">Benefits:</span> Balances skin pH, minimizes pores</p>
+                                    <p><span class="font-bold">Skin Type:</span> All skin types</p>
+                                </div>
+                                <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-product product-card">
+                        <div class="product-inner">
+                            <div class="product-front bg-white">
+                                <div class="relative w-full h-80 overflow-hidden">
+                                    <img src="image.png" alt="Refreshing Toner" class="w-full h-full object-cover">
+                                    <div class="discount-badge skincare-badge">Skincare</div>
+                                </div>
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg mb-1">Refreshing Toner</h3>
+                                    <div class="flex items-center mb-2">
+                                        <span class="text-blue-400 font-bold text-lg">Rp28.500</span>
+                                        <span class="original-price ml-2">Rp30.000</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <div class="flex text-yellow-400">★★★★★</div>
+                                        <button class="text-blue-400 hover:text-blue-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-back">
+                                <h3 class="font-bold text-xl mb-4">Refreshing Toner</h3>
+                                <div class="product-desc text-gray-600 mb-4">
+                                    <p class="mb-3"><span class="font-bold">Key Ingredients:</span> Witch Hazel, Rose Water</p>
+                                    <p class="mb-3"><span class="font-bold">Benefits:</span> Balances skin pH, minimizes pores</p>
+                                    <p><span class="font-bold">Skin Type:</span> All skin types</p>
+                                </div>
+                                <button class="btn-primary text-white py-2 rounded-full font-medium mt-auto">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-indicators flex justify-center mt-4">
+                    <span class="indicator" data-index="0"></span>
+                    <span class="indicator" data-index="1"></span>
+                    <span class="indicator" data-index="2"></span>
+                    <span class="indicator" data-index="3"></span>
+                    <span class="indicator" data-index="4"></span>
+                    <span class="indicator" data-index="5"></span>
+                    <span class="indicator" data-index="6"></span>
+                    <span class="indicator" data-index="7"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Include other JS components similarly -->
+<script src="script.js" defer></script>
+
+</body>
+</html>

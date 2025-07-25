@@ -1,0 +1,600 @@
+/* Theme Variables */
+:root {
+    --primary-blue: #4F46E5;
+    --secondary-blue: #6366F1;
+    --light-blue: #E0E7FF;
+    --dark-blue: #312E81;
+    --soft-white: #FAFAFF;
+    --warm-gray: #F8FAFC;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, var(--soft-white) 0%, var(--light-blue) 100%);
+}
+
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+/* Component Classes */
+.btn-primary {
+    background: linear-gradient(to right, #2563eb, #4f46e5);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, #1d4ed8, #4338ca);
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    border: 2px solid #2563eb;
+    color: #2563eb;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-secondary:hover {
+    background: #2563eb;
+    color: white;
+}
+
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #2563eb, #4f46e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Navigation Styles */
+.nav-link {
+    color: #374151;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #2563eb;
+}
+
+.mobile-nav-link {
+    color: #374151;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+    color: #2563eb;
+}
+
+/* Animations */
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.float-delay-2 {
+    animation-delay: 2s;
+}
+
+.float-delay-4 {
+    animation-delay: 4s;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.slide-delay-3 {
+    animation-delay: 0.3s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Utility Classes */
+.container-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+    .container-padding {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container-padding {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.section-spacing {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+    .section-spacing {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-spacing {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+}
+
+/* Hidden class for mobile menu */
+.hidden {
+    display: none;
+}
+
+/* Show class for mobile menu */
+.show {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Product Flip Card */
+.product-card {
+    perspective: 1500px;
+    height: 450px;
+    /*Sesuaikantinggicard*/overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s ease-out;
+    -webkit-transition: transform 0.6s ease-out;
+    -moz-transition: transform 0.6s ease-out;
+    -ms-transition: transform 0.6s ease-out;
+    -o-transition: transform 0.6s ease-out;
+}
+
+.product-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.product-card:hover .product-inner {
+    transform: rotateY(180deg);
+}
+
+
+.product-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Gambar mengisi ruang tanpa merusak rasio */
+    object-position: center; /* Menjaga posisi gambar tetap proporsional */
+    border-radius: 12px; /* Sudut yang lebih halus pada gambar */
+    transition: transform 0.5s ease-in-out; /* Efek zoom saat hover */
+}
+
+.product-front h3 {
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+.product-front .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1e40af; /* Warna biru untuk harga */
+}
+
+
+.product-front .price {
+    font-size: 1.1rem; /* Membuat harga sedikit lebih besar */
+    font-weight: 600;
+}
+
+.product-front .original-price {
+    font-size: 0.875rem; /* Ukuran lebih kecil untuk harga asli */
+    text-decoration: line-through;
+    color: #4b5563; /* Warna abu-abu untuk harga asli */
+}
+
+.product-front, .product-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-back {
+    background: white;
+    transform: rotateY(180deg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+    padding: 1rem;
+}
+
+.product-back button {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #4f46e5;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.product-back button:hover {
+    background-color: #4338ca;
+}
+
+.product-desc {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 8px;
+}
+
+/* Transparent scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(138, 170, 229, 0.5);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-blue);
+}
+
+.product-desc::-webkit-scrollbar {
+    width: 4px;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #4F8CFF; /* Biru lembut */
+    color: white;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan untuk tampilan lebih menonjol */
+    text-transform: uppercase; /* Membuat teks lebih tegas */
+}
+
+/* Tambahkan berbagai kategori seperti skincare, hair care, dan parfum corner */
+.skincare-badge {
+    background-color: #4F8CFF;
+    border-radius: 14px;
+}
+
+.haircare-badge {
+    background-color: #4F8CFF;
+    border-radius: 14px;
+}
+
+.mens-corner-badge {
+    background-color: #4F8CFF;
+    border-radius: 14px;
+}
+
+.parfum-corner-badge {
+    background-color: #4F8CFF;
+    border-radius: 14px;
+}
+
+.facewash-badge {
+    background-color: #4F8CFF;
+    border-radius: 14px;
+}
+
+.makeup-badge { /* Tambahkan ini jika belum ada */
+    background-color: #FF69B4; /* Contoh warna pink untuk makeup */
+    border-radius: 14px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #777;
+    font-size: 14px;
+}
+
+.mobile-product img {
+    width: 100%;  /* Membuat gambar memenuhi kontainer */
+    height: 100%;
+    object-fit: cover;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 5px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(138, 170, 229, 0.3);
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background-color: var(--primary-blue);
+    transform: scale(1.2);
+}
+
+/* Untuk memulai flip pada mobile */
+@media (max-width: 768px) {
+    /* Product Card untuk mobile (efek flip dan tinggi) */
+    .product-card {
+        height: 450px; /* Tinggi produk card di mobile */
+        perspective: 1000px;
+        position: relative;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .product-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s ease-in-out;
+        transform-style: preserve-3d;
+    }
+
+    /* Mengatur flip saat card diklik */
+    .product-card.flipped .product-inner {
+        transform: rotateY(180deg);
+    }
+    
+    /* Matikan hover flip untuk desktop jika di mobile */
+    .product-card:hover .product-inner { /* */
+        transform: none; /* */
+    }
+
+    .product-front,
+    .product-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        border-radius: inherit;
+        background-color: white;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    .product-back {
+        transform: rotateY(180deg);
+        border-radius: inherit; /* Pastikan ini ada dan benar */
+        background-color: white;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    .product-desc {
+        overflow-y: auto;
+        flex-grow: 1;
+        padding-right: 8px;
+        text-align: left; /* <-- TAMBAHKAN BARIS INI UNTUK RATA KIRI */
+    }
+
+    .product-front img {
+        width: 100%;
+        height: 100%; /* Sesuaikan tinggi gambar agar ada ruang untuk teks dan badge */
+        object-fit: cover;
+        object-position: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .product-front .p-4 {
+        padding: 1rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .product-back .btn-primary {
+        margin-top: auto;
+        width: 100%;
+        padding: 0.75rem 1.5rem;
+    }
+
+    /* Mobile Products Carousel */
+    .mobile-products {
+        display: flex; /* */
+        overflow-x: auto; /* */
+        scroll-snap-type: x mandatory; /* */
+        scroll-behavior: smooth; /* */
+        -webkit-overflow-scrolling: touch; /* */
+        
+        /* PENTING: Padding untuk memusatkan item pertama dan terakhir */
+        /* Jika card 90% lebar, sisa 10%. Bagi 2 jadi 5% di kiri dan kanan */
+        padding-left: 0;   
+        padding-right: 0;  
+        margin-left: 0; 
+        margin-right: 0;
+        padding-top: 1rem; 
+        padding-bottom: 1rem; 
+
+        /* HAPUS justify-content: flex-start; */
+        /* HAPUS gap karena tidak perlu jarak antar item jika hanya satu yang ditampilkan penuh */
+        gap: 0; 
+    }
+
+    .mobile-product {
+        scroll-snap-align: center; /* KUNCI: Agar kartu menjepit di tengah */
+        flex: 0 0 100%; /* UBAH INI: Lebar kartu di mobile menjadi 100% */
+        max-width: 100%; /* UBAH INI: Memastikan flex tidak melebihi lebar ini */
+        /* Hapus margin-right jika ada, karena kita pakai 'gap' (yang sudah dihapus) */
+    }
+
+    /* Sembunyikan scrollbar tapi tetap bisa di-scroll */
+    .mobile-products.no-scrollbar::-webkit-scrollbar { /* */
+        display: none; /* */
+    }
+    .mobile-products.no-scrollbar { /* */
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+
+    /* Styling tambahan untuk indikator carousel */
+    .carousel-indicators {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(138, 170, 229, 0.3);
+        margin: 0 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .indicator.active {
+        background-color: var(--primary-blue);
+        transform: scale(1.2);
+    }
+    
+    /* Discount Badge di Mobile */
+    .discount-badge {
+        padding: 0.1rem 0.3rem; /* Ukuran lebih kecil */
+        font-size: 0.65rem;    /* Ukuran font lebih kecil */
+        top: 10px;             /* Jarak dari atas */
+        right: 5px;            /* Jarak dari kanan */
+        left: auto;            /* Pastikan tidak ada properti 'left' yang aktif */
+        z-index: 10;           /* Pastikan di atas gambar */
+    }
+}
+
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+.btn-primary {
+    background: var(--primary-blue);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #6C8BC7;
+    transform: translateY(-2px);
+}
+
+.benefit-card {
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+}
