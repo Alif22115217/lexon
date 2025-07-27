@@ -521,7 +521,7 @@ body {
         padding-top: 1rem; 
         padding-bottom: 1rem; 
 
-        gap: 50; /* Hapus gap karena hanya satu item yang ditampilkan penuh */
+        gap: 20px; /* Hapus gap karena hanya satu item yang ditampilkan penuh */
     }
 
     .mobile-product {
@@ -529,6 +529,7 @@ body {
         flex: 0 0 100%; /* UBAH INI: Lebar kartu di mobile menjadi 100% */
         max-width: 100%; /* Memastikan flex tidak melebihi lebar ini */
         /* Hapus margin-right di sini karena kita pakai 'gap' (yang sudah dihapus) */
+        margin-right: 16px;
     }
 
     /* Sembunyikan scrollbar tapi tetap bisa di-scroll */

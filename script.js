@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mobile Product Carousel
     const carousel = document.querySelector('.mobile-products');
-    const indicatorsContainer = document.querySelector('.carousel-indicators'); // Dapatkan container indikator
-    let indicators = []; // Definisikan di sini untuk scope yang benar
+    const indicatorsContainer = document.querySelector('.carousel-indicators');
+    let indicators = [];
 
     // Function to create indicators based on number of products
     function createIndicators() {
@@ -83,24 +83,22 @@ document.addEventListener('DOMContentLoaded', function() {
             indicator.setAttribute('data-index', index);
             indicatorsContainer.appendChild(indicator);
         });
-        indicators = document.querySelectorAll('.indicator'); // Perbarui NodeList indicators
+        indicators = document.querySelectorAll('.indicator');
     }
 
     // Call createIndicators on DOMContentLoaded
     createIndicators();
 
-
-    if (carousel && indicatorsContainer) { // Pastikan kedua elemen ada
+    if (carousel && indicatorsContainer) {
         // Update dots based on scroll position
         carousel.addEventListener('scroll', function() {
-            if (indicators.length === 0) return; // Pastikan indikator sudah dibuat
+            if (indicators.length === 0) return;
             const scrollPosition = carousel.scrollLeft;
-            // Dapatkan lebar produk pertama atau gunakan lebar yang dihitung dari flex-basis
             const firstCard = carousel.querySelector('.mobile-product');
-            if (!firstCard) return; // Pencegahan error jika tidak ada kartu
+            if (!firstCard) return;
             const cardWidth = firstCard.offsetWidth;
 
-            if (cardWidth === 0) return; // Hindari pembagian dengan nol
+            if (cardWidth === 0) return;
 
             const currentIndex = Math.round(scrollPosition / cardWidth);
             updateDots(currentIndex);
@@ -123,14 +121,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Initialize dots
         updateDots(0);
 
-        // Auto-scroll prevention for touch devices (drag-to-scroll)
+        // Auto-scroll prevention for touch devices
         let isDown = false;
         let startX;
         let scrollLeft;
 
         carousel.addEventListener('mousedown', (e) => {
             isDown = true;
-            carousel.classList.add('active-drag'); // Optional: add a class for styling when dragging
+            carousel.classList.add('active-drag');
             startX = e.pageX - carousel.offsetLeft;
             scrollLeft = carousel.scrollLeft;
         });
@@ -146,10 +144,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         carousel.addEventListener('mousemove', (e) => {
-            if(!isDown) return;
+            if (!isDown) return;
             e.preventDefault();
             const x = e.pageX - carousel.offsetLeft;
-            const walk = (x - startX) * 2; // Adjust multiplier for scroll speed
+            const walk = (x - startX) * 2;
             carousel.scrollLeft = scrollLeft - walk;
         });
     }
@@ -164,13 +162,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Product Flip on Mobile (Pastikan hanya ada satu blok ini)
-    if (window.innerWidth < 769) { // Lebih konsisten dengan media query CSS max-width: 768px
+    // Product Flip on Mobile (Perbaiki bagian ini)
+    if (window.innerWidth < 769) { 
         document.querySelectorAll('.product-card').forEach(card => {
             card.addEventListener('click', function(e) {
                 // Mencegah flip jika klik terjadi pada tombol atau tautan
                 if (e.target.closest('button') || e.target.closest('a')) {
-                    return; 
+                    return;
                 }
                 this.classList.toggle('flipped'); // Toggle status flip
             });
