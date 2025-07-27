@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Header Scroll Effect
     const header = document.getElementById('header');
-    if (header) { // Pastikan header ada
+    if (header) {
         window.addEventListener('scroll', function() {
             if (window.scrollY > 50) {
                 header.classList.add('glass-effect', 'shadow-lg');
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Memastikan kita hanya menjalankan efek flip pada perangkat mobile
+    // Flip Effect on Mobile
     if (window.innerWidth < 769) {
         console.log("Mobile detected, adding event listeners");
 
