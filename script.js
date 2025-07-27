@@ -162,10 +162,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Product Flip on Mobile (Perbaiki bagian ini)
+    // Memastikan event listener flip terpasang dengan benar
     if (window.innerWidth < 769) { 
+        console.log("Mobile view detected");
+
         document.querySelectorAll('.product-card').forEach(card => {
             card.addEventListener('click', function(e) {
+                console.log("Product card clicked");
                 // Mencegah flip jika klik terjadi pada tombol atau tautan
                 if (e.target.closest('button') || e.target.closest('a')) {
                     return;
