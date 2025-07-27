@@ -162,20 +162,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Memastikan event listener flip terpasang dengan benar
+    // Memastikan kita hanya menjalankan efek flip pada perangkat mobile
     if (window.innerWidth < 769) { 
-        console.log("Mobile view detected");
+        console.log("Mobile detected, adding event listeners");
 
+        // Menambahkan event listener pada setiap card produk di carousel
         document.querySelectorAll('.product-card').forEach(card => {
             card.addEventListener('click', function(e) {
                 console.log("Product card clicked");
-                // Mencegah flip jika klik terjadi pada tombol atau tautan
+
+                // Cek apakah klik terjadi pada tombol atau tautan, jangan flip
                 if (e.target.closest('button') || e.target.closest('a')) {
                     return;
                 }
-                this.classList.toggle('flipped'); // Toggle status flip
+
+                // Toggle flip effect
+                this.classList.toggle('flipped');
             });
         });
+    } else {
+        console.log("Not a mobile view");
     }
 
     console.log('Lexon Beauty website loaded successfully');
