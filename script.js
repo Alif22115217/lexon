@@ -163,21 +163,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Memastikan kita hanya menjalankan efek flip pada perangkat mobile
-    // Memastikan kita hanya menjalankan efek flip pada perangkat mobile
     if (window.innerWidth < 769) {
         console.log("Mobile detected, adding event listeners");
 
-        // Menambahkan event listener pada setiap card produk
+        // Menambahkan event listener pada setiap card produk di carousel
         document.querySelectorAll('.product-card').forEach(card => {
             card.addEventListener('click', function(e) {
                 console.log("Product card clicked");
 
-                // Cek apakah klik terjadi pada tombol atau tautan, jangan flip
+                // Cek apakah klik terjadi pada tombol atau tautan di dalam card
                 if (e.target.closest('button') || e.target.closest('a')) {
                     return;
                 }
 
-                // Toggle flip effect
+                // Toggle flip effect untuk seluruh card
                 this.classList.toggle('flipped'); // Menambah atau menghapus kelas flipped
             });
 
@@ -185,12 +184,12 @@ document.addEventListener('DOMContentLoaded', function() {
             card.addEventListener('touchstart', function(e) {
                 console.log("Product card touched");
 
-                // Cek apakah klik terjadi pada tombol atau tautan, jangan flip
+                // Cek apakah klik terjadi pada tombol atau tautan di dalam card
                 if (e.target.closest('button') || e.target.closest('a')) {
                     return;
                 }
 
-                // Toggle flip effect
+                // Toggle flip effect untuk seluruh card
                 this.classList.toggle('flipped'); // Menambah atau menghapus kelas flipped
             });
         });
