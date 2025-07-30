@@ -605,9 +605,3 @@ h1, h2, h3, h4 {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;             /* Chrome, Safari, Opera */
 }
-
-#testimonial-track {
-  /* biarkan tetap flex, tapi hilangkan snap */
-    display: flex;
-    scroll-behavior: smooth;
-}
