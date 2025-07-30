@@ -521,7 +521,7 @@ body {
         padding-top: 1rem; 
         padding-bottom: 1rem; 
 
-        gap: 20px; /* Hapus gap karena hanya satu item yang ditampilkan penuh */
+        gap: 0; /* Hapus gap karena hanya satu item yang ditampilkan penuh */
     }
 
     .mobile-product {
@@ -595,4 +595,19 @@ h1, h2, h3, h4 {
 
 .benefit-card:hover {
     transform: translateY(-5px);
+}
+
+/* CSS or Tailwind plugin */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
+
+#testimonial-track {
+  /* biarkan tetap flex, tapi hilangkan snap */
+    display: flex;
+    scroll-behavior: smooth;
 }
