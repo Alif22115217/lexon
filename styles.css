@@ -650,3 +650,54 @@ h1, h2, h3, h4 {
     opacity: 1;
     position: relative; /* Kembalikan posisi agar layout tidak rusak */
 }
+
+/* Container untuk marquee, pastikan tidak ada teks yang bisa terseleksi */
+.marquee-container {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+}
+
+/* Konten yang akan bergerak */
+.marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    /* NAIKKAN ANGKA INI UNTUK MEMPERLAMBAT */
+    animation: marquee 50s linear infinite; 
+}
+
+/* Styling untuk setiap logo di dalam marquee */
+.brand-logo {
+    padding: 0 2vw; /* Gunakan vw untuk padding yang responsif */
+}
+
+.brand-logo img {
+    max-height: 80px;
+    width: auto;
+    opacity: 0.9;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efek saat marquee di-hover (berhenti bergerak) */
+.marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+/* Efek saat kursor di atas logo individu */
+.marquee-container:hover .brand-logo:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Definisi animasi marquee yang sudah benar */
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        /* Bergerak ke kiri sejauh SETENGAH dari total lebar (-50%) */
+        transform: translateX(-50%); 
+    }
+}
