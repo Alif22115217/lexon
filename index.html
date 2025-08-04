@@ -16,6 +16,7 @@
     <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <link rel="icon" href="images/logo-lexon-beauty-modified.ico" sizes="any">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body class="smooth-scroll">
     <!-- Header -->
@@ -127,7 +128,7 @@
 
     <!-- Features Section -->
     <section class="section-spacing bg-gradient-to-b from-white to-blue-50" data-name="features" data-file="components/Features.js">
-        <div class="container mx-auto container-padding">
+        <div class="container mx-auto container-padding" data-aos="fade-down">
             <div class="text-center mb-12 sm:mb-16 animate-slide-up">
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
                 Mengapa Memilih <span class="gradient-text">Lexon Beauty?</span>
@@ -180,7 +181,7 @@
 
     <!-- Featured Products Section -->
     <section id="products" class="py-16 px-6 md:px-12 bg-white">
-        <div class="container mx-auto">
+        <div class="container mx-auto" data-aos="fade-up">
             <div class="text-center mb-12 sm:mb-16 animate-slide-up">
                 <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
                     Kategori <span class="gradient-text">Produk</span>
@@ -191,7 +192,7 @@
                 </p>
             </div>
 
-            <div id="product-filters" class="flex gap-2 mb-12 overflow-x-auto snap-x snap-mandatory no-scrollbar md:flex-wrap md:justify-center md:overflow-x-visible md:snap-none">
+            <div id="product-filters" class="flex gap-2 mb-12 overflow-x-auto snap-x snap-mandatory no-scrollbar md:flex-wrap md:justify-center md:overflow-x-visible md:snap-none" data-aos="fade-up">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="bestseller">Best Seller</button>
                 <button class="filter-btn" data-filter="facewash">Face Wash</button>
@@ -482,7 +483,7 @@
             </div>
 
             <!--Mobile Carousel-->
-            <div class="md:hidden relative">
+            <div class="md:hidden relative" data-aos="fade-up">
                 <div class="mobile-products flex overflow-x-auto snap-x snap-mandatory py-4 -mx-4 px-4 no-scrollbar">
                     <div class="mobile-product product-card" data-category="facewash">
                         <div class="product-inner">
@@ -774,7 +775,7 @@
                     <span class="indicator" data-index="7"></span>
                 </div>
             </div>
-            <div class="mt-12 text-center">
+            <div class="mt-12 text-center" data-aos="fade-in">
                 <a href="https://www.google.com/maps/place/Lexon+Beauty/@-7.8042139,110.3923823,17z/data=!4m8!3m7!1s0x2e7a579775c57273:0xc8eac342161e16c6!8m2!3d-7.8042139!4d110.3949572!9m1!1b1!16s%2Fg%2F11smm3tcj9?entry=ttu&g_ep=EgoyMDI1MDcyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-primary inline-flex items-center justify-center">
                     Pilih Toko Online
                     <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
@@ -785,7 +786,7 @@
 
     <!-- Testimoni Section-->
     <section id="testimonials" class="py-16 bg-gradient-to-b from-white to-blue-50">
-        <div class="container mx-auto container-padding text-center">
+        <div class="container mx-auto container-padding text-center" data-aos="fade-in">
             <h2 class="text-3xl sm:text-4xl font-bold text-dark-blue mb-12">Apa Kata <span class="gradient-text">Pelanggan Kami</span></h2>
             
             <div id="testimonial-carousel" class="relative w-full overflow-hidden overflow-x-auto scrollbar-hide" data-bs-ride="carousel" data-bs-interval="2000">
@@ -884,6 +885,7 @@
             </div>
         </div>
     </section>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <!-- Include other JS components similarly -->
 <script src="script.js" defer></script>
 

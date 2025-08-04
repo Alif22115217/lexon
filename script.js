@@ -305,5 +305,13 @@ document.addEventListener('DOMContentLoaded', function() {
     initTestimonialCarousel();
     initImageSlideshow();
 
+     // Inisialisasi AOS (cukup satu kali di sini)
+    AOS.init({
+        duration: 800,
+        offset: 120, // Memicu animasi sedikit lebih awal
+        once: true    // Animasi hanya berjalan sekali
+    });
+
+
     console.log("Lexon Beauty website loaded and all scripts initialized successfully.");
 });
