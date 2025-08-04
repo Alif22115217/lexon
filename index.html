@@ -15,6 +15,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
+    <link rel="icon" href="images/lexonlogo.ico" sizes="any">
 </head>
 <body class="smooth-scroll">
     <!-- Header -->
@@ -22,10 +23,7 @@
         <div class="container mx-auto container-padding py-3 sm:py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center">
-                        <div class="icon-sparkles text-white text-lg"></div>
-                    </div>
-                    <span class="text-2xl font-bold gradient-text">Lexon Beauty</span>
+                    <img src="images/lexon.png" alt="Lexon Logo" class="w-50 h-12 flex items-center justify-center">
                 </div>
 
                 <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8">
@@ -103,12 +101,22 @@
                 </div>
 
                 <!-- Right Section: Image -->
-                <div class="relative mt-8 lg:mt-0">
+                <div class="relative mt-8 lg:mt-0 lg:scale-108">
                     <div class="relative z-10">
                         <img 
-                            src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            src="images/2.png" 
                             alt="Beauty Products" 
-                            class="w-full h-auto rounded-2xl sm:rounded-3xl shadow-2xl card-hover object-cover"
+                            class="slideshow-image active w-full h-auto rounded-2xl sm:rounded-3xl shadow-2xl card-hover object-cover"
+                        />
+                        <img 
+                            src="images/1-1.png" 
+                            alt="Beauty Products" 
+                            class="slideshow-image w-full h-auto rounded-2xl sm:rounded-3xl shadow-2xl card-hover object-cover"
+                        />
+                        <img 
+                            src="images/web-1.png" 
+                            alt="Beauty Products" 
+                            class="slideshow-image w-full h-auto rounded-2xl sm:rounded-3xl shadow-2xl card-hover object-cover"
                         />
                     </div>
                     <div class="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 w-full h-full bg-gradient-to-r from-blue-400 to-indigo-400 rounded-2xl sm:rounded-3xl opacity-20"></div>
@@ -175,7 +183,7 @@
         <div class="container mx-auto">
             <div class="text-center mb-12 sm:mb-16 animate-slide-up">
                 <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
-                    Produk <span class="gradient-text">Unggulan</span>
+                    Kategori <span class="gradient-text">Produk</span>
                 </h2>
                 <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
                     Koleksi produk kecantikan terpilih yang telah dipercaya ribuan wanita Indonesia
@@ -183,8 +191,17 @@
                 </p>
             </div>
 
+            <div id="product-filters" class="flex gap-2 mb-12 overflow-x-auto snap-x snap-mandatory no-scrollbar md:flex-wrap md:justify-center md:overflow-x-visible md:snap-none">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="bestseller">Best Seller</button>
+                <button class="filter-btn" data-filter="facewash">Face Wash</button>
+                <button class="filter-btn" data-filter="mens">Men's Corner</button>
+                <button class="filter-btn" data-filter="haircare">Hair Care</button>
+                <button class="filter-btn" data-filter="parfum">Parfum Corner</button>
+            </div>
+
             <div class="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="product-card">
+                <div class="product-card" data-category="facewash">
                     <div class="product-inner">
                         <!--Product 1-->
                         <div class="product-front bg-white">
@@ -467,7 +484,7 @@
             <!--Mobile Carousel-->
             <div class="md:hidden relative">
                 <div class="mobile-products flex overflow-x-auto snap-x snap-mandatory py-4 -mx-4 px-4 no-scrollbar">
-                    <div class="mobile-product product-card">
+                    <div class="mobile-product product-card" data-category="facewash">
                         <div class="product-inner">
                             <!--Product 1-->
                             <div class="product-front bg-white">
@@ -757,9 +774,16 @@
                     <span class="indicator" data-index="7"></span>
                 </div>
             </div>
+            <div class="mt-12 text-center">
+                <a href="https://www.google.com/maps/place/Lexon+Beauty/@-7.8042139,110.3923823,17z/data=!4m8!3m7!1s0x2e7a579775c57273:0xc8eac342161e16c6!8m2!3d-7.8042139!4d110.3949572!9m1!1b1!16s%2Fg%2F11smm3tcj9?entry=ttu&g_ep=EgoyMDI1MDcyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-primary inline-flex items-center justify-center">
+                    Pilih Toko Online
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
         </div>
     </section>
 
+    <!-- Testimoni Section-->
     <section id="testimonials" class="py-16 bg-gradient-to-b from-white to-blue-50">
         <div class="container mx-auto container-padding text-center">
             <h2 class="text-3xl sm:text-4xl font-bold text-dark-blue mb-12">Apa Kata <span class="gradient-text">Pelanggan Kami</span></h2>
@@ -807,11 +831,53 @@
                             <a href="https://maps.app.goo.gl/v1aJL2hj1J6rPt6C9" target="_blank" class="text-sm text-gray-500 hover:underline block mt-2">Lihat di Google Maps</a>
                         </div>
                     </div>
+
+                    <div class="testimonial-card flex-shrink-0 w-full sm:w-1/2 md:w-1/2 lg:w-1/3 p-4 snap-center">
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-2 h-full flex flex-col justify-between">
+                            <div class="mb-4">
+                                <img src="images/testimoni3.png" alt="Foto Profil Maria Ross" class="w-16 h-16 rounded-full mx-auto object-cover border-2 border-primary-blue shadow-md">
+                            </div>
+                            <div class="flex justify-center mb-2 text-yellow-400">
+                                ★★★★★
+                            </div>
+                            <p class="text-gray-700 text-lg italic mb-4 flex-grow">"Dateng kesini pas annivnya lumayan banget promo & diskonnya. Walau storenya ga terlalu besar tapi cukup komplit produknya. Ada harga member juga, jadi lebih murah & worth it. Sukses terus buat Lexon Beauty"</p>
+                            <p class="font-semibold text-primary-blue">- Anisa Dwi</p>
+                            <a href="https://maps.app.goo.gl/v1aJL2hj1J6rPt6C9" target="_blank" class="text-sm text-gray-500 hover:underline block mt-2">Lihat di Google Maps</a>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card flex-shrink-0 w-full sm:w-1/2 md:w-1/2 lg:w-1/3 p-4 snap-center">
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-2 h-full flex flex-col justify-between">
+                            <div class="mb-4">
+                                <img src="images/testimoni3.png" alt="Foto Profil Maria Ross" class="w-16 h-16 rounded-full mx-auto object-cover border-2 border-primary-blue shadow-md">
+                            </div>
+                            <div class="flex justify-center mb-2 text-yellow-400">
+                                ★★★★★
+                            </div>
+                            <p class="text-gray-700 text-lg italic mb-4 flex-grow">"Dateng kesini pas annivnya lumayan banget promo & diskonnya. Walau storenya ga terlalu besar tapi cukup komplit produknya. Ada harga member juga, jadi lebih murah & worth it. Sukses terus buat Lexon Beauty"</p>
+                            <p class="font-semibold text-primary-blue">- Anisa Dwi</p>
+                            <a href="https://maps.app.goo.gl/v1aJL2hj1J6rPt6C9" target="_blank" class="text-sm text-gray-500 hover:underline block mt-2">Lihat di Google Maps</a>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card flex-shrink-0 w-full sm:w-1/2 md:w-1/2 lg:w-1/3 p-4 snap-center">
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-2 h-full flex flex-col justify-between">
+                            <div class="mb-4">
+                                <img src="images/testimoni3.png" alt="Foto Profil Maria Ross" class="w-16 h-16 rounded-full mx-auto object-cover border-2 border-primary-blue shadow-md">
+                            </div>
+                            <div class="flex justify-center mb-2 text-yellow-400">
+                                ★★★★★
+                            </div>
+                            <p class="text-gray-700 text-lg italic mb-4 flex-grow">"Dateng kesini pas annivnya lumayan banget promo & diskonnya. Walau storenya ga terlalu besar tapi cukup komplit produknya. Ada harga member juga, jadi lebih murah & worth it. Sukses terus buat Lexon Beauty"</p>
+                            <p class="font-semibold text-primary-blue">- Anisa Dwi</p>
+                            <a href="https://maps.app.goo.gl/v1aJL2hj1J6rPt6C9" target="_blank" class="text-sm text-gray-500 hover:underline block mt-2">Lihat di Google Maps</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="mt-12">
-                <a href="https://www.google.com/maps/place/Lexon+Beauty/@-7.8042139,110.3923823,17z/data=!4m8!3m7!1s0x2e7a579775c57273:0xc8eac342161e16c6!8m2!3d-7.8042139!4d110.3949572!9m1!1b1!16s%2Fg%2F11smm3tcj9?entry=ttu&g_ep=EgoyMDI1MDcyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-primary inline-flex items-center">
+                <a href="https://www.google.com/maps/place/Lexon+Beauty/@-7.8042139,110.3923823,17z/data=!4m8!3m7!1s0x2e7a579775c57273:0xc8eac342161e16c6!8m2!3d-7.8042139!4d110.3949572!9m1!1b1!16s%2Fg%2F11smm3tcj9?entry=ttu&g_ep=EgoyMDI1MDcyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-secondary inline-flex items-center">
                     Lihat Semua Ulasan di Google
                     <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </a>

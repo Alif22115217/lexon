@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Header Scroll Effect (tidak ada perubahan)
-    const header = document.getElementById('header');
-    if (header) {
+
+    // =================================================================
+    // 1. EFEK SCROLL PADA HEADER
+    // =================================================================
+    function initHeaderEffect() {
+        const header = document.getElementById('header');
+        if (!header) return;
+
         window.addEventListener('scroll', function() {
             if (window.scrollY > 50) {
                 header.classList.add('glass-effect', 'shadow-lg');
@@ -13,322 +18,292 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Mobile Menu Toggle (tidak ada perubahan)
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    let isMenuOpen = false;
+    // =================================================================
+    // 2. TOGGLE MENU MOBILE
+    // =================================================================
+    function initMobileMenu() {
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (!mobileMenuBtn || !mobileMenu) return;
 
-    if (mobileMenuBtn && mobileMenu) {
-        const menuIcon = mobileMenuBtn.querySelector('div'); // Ambil div di dalam button
-        mobileMenuBtn.addEventListener('click', function() {
-            isMenuOpen = !isMenuOpen;
-            
-            if (isMenuOpen) {
-                mobileMenu.classList.remove('hidden');
-                mobileMenu.classList.add('show');
-                if (menuIcon) menuIcon.className = 'icon-x text-xl text-gray-700'; // Change icon to 'X'
-            } else {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('show');
-                if (menuIcon) menuIcon.className = 'icon-menu text-xl text-gray-700'; // Revert to 'menu' icon
+        let isMenuOpen = false;
+        const menuIcon = mobileMenuBtn.querySelector('div');
+
+        const toggleMenu = (forceClose = false) => {
+            isMenuOpen = forceClose ? false : !isMenuOpen;
+            mobileMenu.classList.toggle('hidden', !isMenuOpen);
+            mobileMenu.classList.toggle('show', isMenuOpen);
+            if (menuIcon) {
+                menuIcon.className = isMenuOpen ? 'icon-x text-xl text-gray-700' : 'icon-menu text-xl text-gray-700';
             }
-        });
+        };
+        
+        mobileMenuBtn.addEventListener('click', () => toggleMenu());
 
-        // Close mobile menu when clicking on navigation links
+        // Tutup menu saat link navigasi di-klik
         const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('show');
-                if (menuIcon) menuIcon.className = 'icon-menu text-xl text-gray-700';
-                isMenuOpen = false;
+            link.addEventListener('click', () => toggleMenu(true));
+        });
+    }
+
+    // =================================================================
+    // 3. SMOOTH SCROLL UNTUK LINK NAVIGASI
+    // =================================================================
+    function initSmoothScroll() {
+        const navLinks = document.querySelectorAll('a[href^="#"]');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    const headerHeight = document.getElementById('header')?.offsetHeight || 0;
+                    const targetPosition = targetSection.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     }
 
-    // Smooth Scroll for Navigation Links (tidak ada perubahan)
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const headerHeight = header ? header.offsetHeight : 0; // Handle if header is null
-                const targetPosition = targetSection.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
+    // =================================================================
+    // 4. FILTER PRODUK & INTEGRASI CAROUSEL MOBILE
+    // =================================================================
+    function initProductFilter() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+        const mobileCarousel = document.querySelector('.mobile-products');
+        
+        if (filterButtons.length === 0 || productCards.length === 0) return;
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+
+                // Update status tombol aktif
+                document.querySelector('.filter-btn.active').classList.remove('active');
+                button.classList.add('active');
+
+                // Proses filter produk
+                productCards.forEach(card => {
+                    const productCategory = card.getAttribute('data-category');
+                    const isVisible = (filter === 'all' || productCategory === filter);
+                    card.style.display = isVisible ? '' : 'none';
                 });
-            }
+
+                // Penting: Update indikator carousel setelah filter
+                if (mobileCarousel) {
+                    updateMobileCarouselIndicators();
+                    mobileCarousel.scrollTo({ left: 0, behavior: 'auto' }); // Reset posisi scroll
+                }
+            });
         });
-    });
+    }
 
-    // Mobile Product Carousel (tidak ada perubahan)
-    const carousel = document.querySelector('.mobile-products');
-    const indicatorsContainer = document.querySelector('.carousel-indicators');
-    let indicators = [];
-
-    // Function to create indicators based on number of products
-    function createIndicators() {
+    // =================================================================
+    // 5. CAROUSEL PRODUK MOBILE (INDIKATOR & DRAG)
+    // =================================================================
+    function updateMobileCarouselIndicators() {
+        const carousel = document.querySelector('.mobile-products');
+        const indicatorsContainer = document.querySelector('.carousel-indicators');
         if (!carousel || !indicatorsContainer) return;
 
-        indicatorsContainer.innerHTML = ''; // Bersihkan indikator yang ada
-        const productCards = carousel.querySelectorAll('.mobile-product');
-        productCards.forEach((_, index) => {
+        indicatorsContainer.innerHTML = ''; // Bersihkan indikator lama
+        
+        // Hanya hitung produk yang terlihat (tidak di-display:none)
+        const visibleProductCards = Array.from(carousel.querySelectorAll('.mobile-product')).filter(
+            card => card.style.display !== 'none'
+        );
+
+        if (visibleProductCards.length === 0) return;
+
+        visibleProductCards.forEach((_, index) => {
             const indicator = document.createElement('span');
-            indicator.classList.add('indicator');
+            indicator.className = 'indicator';
             indicator.setAttribute('data-index', index);
             indicatorsContainer.appendChild(indicator);
         });
-        indicators = document.querySelectorAll('.indicator');
+
+        updateActiveDot(0); // Set dot pertama sebagai aktif
+    }
+    
+    function updateActiveDot(index) {
+        const indicators = document.querySelectorAll('.carousel-indicators .indicator');
+        indicators.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
     }
 
-    // Call createIndicators on DOMContentLoaded
-    createIndicators();
+    function initMobileProductCarousel() {
+        const carousel = document.querySelector('.mobile-products');
+        const indicatorsContainer = document.querySelector('.carousel-indicators');
+        if (!carousel || !indicatorsContainer) return;
 
-    if (carousel && indicatorsContainer) {
-        // Update dots based on scroll position
+        // Inisialisasi indikator saat halaman dimuat
+        updateMobileCarouselIndicators();
+
+        // Event listener untuk scroll
         carousel.addEventListener('scroll', function() {
-            if (indicators.length === 0) return;
-            const scrollPosition = carousel.scrollLeft;
-            const firstCard = carousel.querySelector('.mobile-product');
-            if (!firstCard) return;
-            const cardWidth = firstCard.offsetWidth;
+            const visibleCards = Array.from(carousel.querySelectorAll('.mobile-product')).filter(
+                card => card.style.display !== 'none'
+            );
+            if (visibleCards.length === 0) return;
 
+            const cardWidth = visibleCards[0].offsetWidth;
             if (cardWidth === 0) return;
-
-            const currentIndex = Math.round(scrollPosition / cardWidth);
-            updateDots(currentIndex);
+            
+            const currentIndex = Math.round(carousel.scrollLeft / cardWidth);
+            updateActiveDot(currentIndex);
         });
-
-        // Click on dots to scroll to corresponding product
+        
+        // Event listener untuk klik pada dot indikator
         indicatorsContainer.addEventListener('click', function(e) {
             if (e.target.classList.contains('indicator')) {
                 const index = parseInt(e.target.getAttribute('data-index'));
-                const firstCard = carousel.querySelector('.mobile-product');
-                if (!firstCard) return;
-                const cardWidth = firstCard.offsetWidth;
+                const visibleCards = Array.from(carousel.querySelectorAll('.mobile-product')).filter(
+                     card => card.style.display !== 'none'
+                );
+                if (visibleCards.length === 0) return;
+
+                const cardWidth = visibleCards[0].offsetWidth;
                 carousel.scrollTo({
                     left: index * cardWidth,
                     behavior: 'smooth'
                 });
             }
         });
+    }
 
-        // Initialize dots
-        updateDots(0);
+    // =================================================================
+    // 6. EFEK FLIP PADA KARTU PRODUK (HANYA MOBILE)
+    // =================================================================
+    function initCardFlipEffect() {
+        if (window.innerWidth >= 769) return; // Hanya berjalan di mobile
 
-        // Auto-scroll prevention for touch devices
-        let isDown = false;
-        let startX;
-        let scrollLeft;
+        document.querySelectorAll('.product-card').forEach(card => {
+            const handleCardFlip = (e) => {
+                const isCartButton = e.target.closest('.product-front button.text-blue-400');
+                const isOtherButton = e.target.closest('button, a');
 
-        carousel.addEventListener('mousedown', (e) => {
-            isDown = true;
-            carousel.classList.add('active-drag');
-            startX = e.pageX - carousel.offsetLeft;
-            scrollLeft = carousel.scrollLeft;
-        });
+                if (isCartButton) {
+                    card.classList.toggle('flipped');
+                    e.stopPropagation();
+                    return;
+                }
+                
+                if (isOtherButton && !isCartButton) {
+                    return; // Jangan lakukan apa-apa jika tombol lain di klik
+                }
 
-        carousel.addEventListener('mouseleave', () => {
-            isDown = false;
-            carousel.classList.remove('active-drag');
-        });
-
-        carousel.addEventListener('mouseup', () => {
-            isDown = false;
-            carousel.classList.remove('active-drag');
-        });
-
-        carousel.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - carousel.offsetLeft;
-            const walk = (x - startX) * 2;
-            carousel.scrollLeft = scrollLeft - walk;
+                card.classList.toggle('flipped');
+            };
+            
+            // Menggunakan 'click' saja sudah cukup untuk kebanyakan kasus modern
+            card.addEventListener('click', handleCardFlip);
         });
     }
 
-    function updateDots(index) {
-        indicators.forEach((dot, i) => {
-            if (i === index) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
-    }
-
-    // === GLOBAL VARIABLES ===
-    let nextTestimonial, prevTestimonial, startAutoSlide, stopAutoSlide;
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const carousel   = document.getElementById('testimonial-carousel');
-        const track      = document.getElementById('testimonial-track');
-        const indicators = document.getElementById('testimonial-indicators');
-        const prevBtn    = document.getElementById('prevBtn');
-        const nextBtn    = document.getElementById('nextBtn');
-
+    // =================================================================
+    // 7. CAROUSEL TESTIMONIAL
+    // =================================================================
+    function initTestimonialCarousel() {
+        const carousel = document.getElementById('testimonial-carousel');
+        const track = document.getElementById('testimonial-track');
         if (!carousel || !track) return;
 
-        const cards            = track.querySelectorAll('.testimonial-card');
-        let currentIndex       = 0;
-        let autoInterval       = null;
-        const delay            = 2000; // 2 detik
+        const indicators = document.getElementById('testimonial-indicators');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const cards = track.querySelectorAll('.testimonial-card');
 
-        // --- Helpers ---
-        const visibleCards = () => window.innerWidth >= 1024 ? 3 :
-                                    window.innerWidth >= 768  ? 2 : 1;
+        let currentIndex = 0;
+        let autoInterval = null;
+        const delay = 3000; // 3 detik
 
-        const createDots = () => {
-            if (!indicators) return;
-            indicators.innerHTML = '';
-            const sets = Math.ceil(cards.length / 2 / visibleCards());
-            for (let i = 0; i < sets; i++) {
-            const dot = document.createElement('span');
-            dot.className = 'w-3 h-3 bg-gray-400 rounded-full cursor-pointer';
-            dot.dataset.index = i;
-            indicators.appendChild(dot);
-            }
-            updateDots(0);
+        const updateTestimonialDots = (idx) => {
+            indicators?.querySelectorAll('span').forEach((d, i) => {
+                d.classList.toggle('bg-primary-blue', i === idx);
+                d.classList.toggle('bg-gray-400', i !== idx);
+            });
         };
 
-        const updateDots = idx => {
-            indicators?.querySelectorAll('span').forEach((d, i) =>
-            d.classList.toggle('bg-primary-blue', i === idx)
-            );
-        };
-
-        const scrollTo = idx => {
-            const vw = carousel.offsetWidth;
-            carousel.scrollTo({ left: idx * vw, behavior: 'smooth' });
+        const scrollToTestimonial = (idx) => {
+            const scrollWidth = carousel.offsetWidth * idx;
+            carousel.scrollTo({ left: scrollWidth, behavior: 'smooth' });
             currentIndex = idx;
-            updateDots(idx);
+            updateTestimonialDots(idx);
+        };
+        
+        const nextTestimonial = () => {
+            const totalPages = Math.ceil(track.scrollWidth / carousel.offsetWidth);
+            const nextIndex = (currentIndex + 1) % totalPages;
+            scrollToTestimonial(nextIndex);
         };
 
-        // --- Fungsi GLOBAL (agar bisa diakses di luar) ---
-        nextTestimonial = () => {
-            const vw = carousel.offsetWidth;
-            const max = carousel.scrollWidth - vw;
-            if (carousel.scrollLeft < max - 10) {
-            scrollTo(currentIndex + 1);
-            } else {
-            carousel.scrollTo({ left: 0, behavior: 'auto' });
-            scrollTo(0);
-            }
+        const prevTestimonial = () => {
+            const totalPages = Math.ceil(track.scrollWidth / carousel.offsetWidth);
+            const prevIndex = (currentIndex - 1 + totalPages) % totalPages;
+            scrollToTestimonial(prevIndex);
         };
 
-        prevTestimonial = () => {
-            const vw = carousel.offsetWidth;
-            if (carousel.scrollLeft > vw) {
-            scrollTo(currentIndex - 1);
-            } else {
-            const max = carousel.scrollWidth - vw;
-            carousel.scrollTo({ left: max, behavior: 'auto' });
-            scrollTo(Math.floor(max / vw));
-            }
-        };
-
-        startAutoSlide = () => {
+        const startAutoSlide = () => {
             stopAutoSlide();
             autoInterval = setInterval(nextTestimonial, delay);
         };
 
-        stopAutoSlide = () => {
-            if (autoInterval) clearInterval(autoInterval);
+        const stopAutoSlide = () => {
+            clearInterval(autoInterval);
         };
 
-        // --- Event listeners ---
-        prevBtn?.addEventListener('click', prevTestimonial);
-        nextBtn?.addEventListener('click', nextTestimonial);
-
+        // Event Listeners
+        prevBtn?.addEventListener('click', () => { stopAutoSlide(); prevTestimonial(); startAutoSlide(); });
+        nextBtn?.addEventListener('click', () => { stopAutoSlide(); nextTestimonial(); startAutoSlide(); });
         indicators?.addEventListener('click', e => {
-            if (e.target.dataset.index != null) {
-            scrollTo(+e.target.dataset.index);
-            stopAutoSlide();
-            startAutoSlide();
+            if (e.target.dataset.index) {
+                stopAutoSlide();
+                scrollToTestimonial(+e.target.dataset.index);
+                startAutoSlide();
             }
         });
-
-        carousel.addEventListener('scroll', () => {
-            stopAutoSlide();
-            const idx = Math.round(carousel.scrollLeft / carousel.offsetWidth);
-            updateDots(idx);
-            setTimeout(startAutoSlide, 500);
-        });
-
-        // --- init ---
-        createDots();
-        scrollTo(0);
+        
+        // Inisialisasi
         startAutoSlide();
-
-        // Responsive
-        window.addEventListener('resize', () => {
-            createDots();
-            scrollTo(0);
-            startAutoSlide();
-        });
-    });
-
-// --- Header & lain-lain (kode lama Anda) ---
-// ... (letakkan di bawah, tidak perlu diubah) ...arousel exists
-
-    // Flip Effect on Mobile (tidak ada perubahan)
-    if (window.innerWidth < 769) {
-        console.log("Mobile detected, adding event listeners");
-
-        // Menambahkan event listener pada setiap card produk di carousel
-        document.querySelectorAll('.product-card').forEach(card => {
-            // Fungsi umum untuk menangani flip berdasarkan event
-            const handleCardFlip = function(e) {
-                console.log("Product card interaction detected");
-
-                const target = e.target;
-
-                // 1. Periksa apakah yang diklik adalah tombol keranjang atau SVG di dalamnya
-                // Tombol keranjang memiliki kelas `text-blue-400` dan berada di dalam `.product-front`
-                const isCartButton = target.closest('.product-front button.text-blue-400');
-
-                if (isCartButton) {
-                    this.classList.toggle('flipped'); // Lakukan flip
-                    e.stopPropagation(); // Penting: Hentikan event agar tidak memicu listener lain
-                    return; // Flip sudah ditangani, keluar dari fungsi
-                }
-
-                // 2. Periksa apakah yang diklik adalah tombol lain (misal "Buy Now") atau tautan
-                // Jika ya, JANGAN lakukan flip
-                if (target.closest('button') || target.closest('a')) {
-                    console.log("Clicked on another button or link, preventing flip.");
-                    return; // Jangan lakukan flip, biarkan tombol/link berfungsi normal
-                }
-
-                // 3. Jika bukan tombol keranjang, tombol lain, atau tautan,
-                // maka itu adalah tap umum pada area kartu, Lakukan flip
-                console.log("Clicked on general card area, toggling flip.");
-                this.classList.toggle('flipped'); // Menambah atau menghapus kelas flipped
-            }.bind(card); // Bind 'this' ke elemen card agar bisa menggunakan this.classList.toggle
-
-            // Tambahkan event listener untuk 'click' (untuk sebagian besar mobile & desktop)
-            card.addEventListener('click', handleCardFlip);
-
-            // Tambahkan event listener untuk 'touchstart' (untuk perangkat mobile murni)
-            // Ini akan memastikan respons yang lebih cepat pada mobile
-            card.addEventListener('touchstart', handleCardFlip);
-        });
-    } else {
-        console.log("Not a mobile view (or larger screen)");
     }
 
-    console.log('Lexon Beauty website loaded successfully');
-});
+    // =================================================================
+    // 8. INITIALIZE IMAGE SLIDESHOW
+    // =================================================================
+    function initImageSlideshow() {
+        const images = document.querySelectorAll('.slideshow-image');
+        if (images.length === 0) return;
 
-// baru tambahkan listener global
-document.addEventListener('DOMContentLoaded', () => {
-  const nextBtn = document.getElementById('nextBtn');
-  const prevBtn = document.getElementById('prevBtn');
-  if (nextBtn) nextBtn.addEventListener('click', () => nextTestimonial && nextTestimonial());
-  if (prevBtn) prevBtn.addEventListener('click', () => prevTestimonial && prevTestimonial());
+        let currentIndex = 0;
+
+        function showNextImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextImage, 5000); // Change image every 5 seconds
+    }
+
+    // =================================================================
+    // EKSEKUSI SEMUA FUNGSI INISIALISASI
+    // =================================================================
+    initHeaderEffect();
+    initMobileMenu();
+    initSmoothScroll();
+    initProductFilter();
+    initMobileProductCarousel();
+    initCardFlipEffect();
+    initTestimonialCarousel();
+    initImageSlideshow();
+
+    console.log("Lexon Beauty website loaded and all scripts initialized successfully.");
 });
