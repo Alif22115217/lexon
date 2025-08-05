@@ -3,6 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self'; 
+        script-src 'self' https://cdn.tailwindcss.com https://unpkg.com 'unsafe-inline'; 
+        style-src 'self' https://unpkg.com https://resource.trickle.so 'unsafe-inline'; 
+        font-src 'self' https://resource.trickle.so;
+        img-src 'self' data:;
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+    ">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
 
     <title>Lexon Beauty - Your Beauty Journey Starts Here</title>
     <meta name="description" content="Lexon Beauty menyediakan produk kecantikan premium dengan kualitas terbaik. Temukan koleksi skincare dan makeup terbaru untuk tampil percaya diri.">
@@ -13,10 +26,10 @@
     <meta name="twitter:description" content="Lexon Beauty menyediakan produk kecantikan premium dengan kualitas terbaik.">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" integrity="sha384-h3r0OCJencz8nSJECYtQSDqMb7UOGnK9IgguVGYw0Kt8K/aNeUL7Lk+cAflKb1a3" crossorigin="anonymous">
     <link href="styles.css" rel="stylesheet">
     <link rel="icon" href="images/logo-lexon-beauty-modified.ico" sizes="any">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" integrity="sha384-6oNXtl81GMcKAnWPPXinWlPskKUQ0NGG1/XeyMfC5RgCJKPc03w0rHVt1jyoJLf0" crossorigin="anonymous">
 </head>
 <body class="smooth-scroll">
     <!-- Header -->
@@ -24,7 +37,7 @@
         <div class="container mx-auto container-padding py-3 sm:py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-2">
-                    <img src="images/lexon.png" alt="Lexon Logo" class="w-32 h-auto flex items-center justify-center" loading="lazy">
+                    <img src="images/lexon.webp" alt="Lexon Logo" class="w-32 h-auto flex items-center justify-center">
                 </div>
 
                 <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8">

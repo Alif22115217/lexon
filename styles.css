@@ -670,7 +670,7 @@ h1, h2, h3, h4 {
 
 /* Styling untuk setiap logo di dalam marquee */
 .brand-logo {
-    padding: 0 2vw; /* Gunakan vw untuk padding yang responsif */
+    padding: 0 4vw; /* Gunakan vw untuk padding yang responsif */
 }
 
 .brand-logo img {
